@@ -1,7 +1,54 @@
 <html>
 <head>
 <!-- Js start here-->
+<script language="javascript" type="text/javascript">
+function Alert(){
+	alert('Hello World.');
+}
+function addTwoValue(value1,value2){
 
+var v1= value1;
+var v2= value2;
+
+var result = v1+v2;
+
+}
+function MultipleyTwoValue(value1,value2){
+
+}
+
+function TimeTable(value1){
+
+
+}
+function validate(){
+	if( document.myform.num1.value == "" )
+   {
+     alert( "Please Enter Number1:" );
+     document.myform.num1.focus() ;
+     return false;
+   }
+   if(document.myform.num2.value == ""){
+   
+		alert("Please Enter Number2:");
+		document.myform.num2.focus();
+		return false;
+   }
+   
+   else{
+   
+   var num1= document.myform.num1.value;
+    var num2= document.myform.num2.value;
+	var result =parseInt(num1,10) + parseInt(num2, 10); 
+	
+	
+	alert("The Sum of Two Number is:"+result);
+	
+   }
+
+}
+</script>
+<noscript>Java Script is not Enabled!!!</noscript>
 
 <!--  js ends here-->
 </head>
@@ -10,10 +57,15 @@
 
 <h1 align="center"> Learning Java Script </h1>
 
-Number1:
-Number2:
-Number3:
+<input type="button" onclick="return Alert(this);" value="Click Me!">
+<br>
+<form action="" name="myform" onsubmit="return(validate());"> 
+Number1: <input type="text" name="num1" id="num1"><br>
+Number2:<input type="text" name="num2" id="num2"><br>
 
+
+<input type="submit" value="submit" id="submit">
+</form>
 </body>
 
 
