@@ -1,0 +1,115 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>go home</title>
+    <style type="text/css">
+        .home,.second{
+            height: 100%;
+            min-height: 100%;
+            background: #f5f5f5;
+            position: relative;
+        }
+        .second{
+            background: #888;
+        }
+        .last{
+            height:100%;
+            max-width: 100%;
+            background: #ccc;
+            position: relative;
+        }
+        .go-home{
+            text-decoration: none;
+            font-size: 16px;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            padding-bottom: 50px;
+            padding-right: 50px;
+       }
+       .go-second,.go-last{
+            text-decoration: none;
+            font-size: 16px;
+            width: 100px;
+            bottom: 0;
+            left:50%;
+            position: absolute;
+            padding-bottom: 50px;
+            padding-right: 50px;
+
+       }
+       h1{
+           text-align: center;
+           font-size: 40px;
+       }
+    </style>
+    
+</head>
+<body>
+    <section id="home" class="home">
+        <h1>This is home</h1>
+        <a class="go-second" href="#second">Go Second</a>
+    </section>
+    <!-- End of home section -->
+    <section id="second" class="second">
+        <h1>This is second section</h1>
+        <a class="go-last" href="#last">Go Last</a>
+    </section>
+    <!-- End of second section -->
+    <section id="last" class="last">
+        <h1>This is last</h1>
+        <a id="goHome" class="go-home" href="#home">Go Home</a>
+    </section>
+
+    <!-- jQuery -->
+    <script
+    src="https://code.jquery.com/jquery-1.9.0.min.js"
+    integrity="sha256-f6DVw/U4x2+HjgEqw5BZf67Kq/5vudRZuRkljnbF344="
+    crossorigin="anonymous"></script>
+    <script>
+  
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+
+    /* on scroll */
+    window.onscroll=function(){
+        console.log('scrolling....');
+    };
+</script>
+</body>
+</html>
+ 
