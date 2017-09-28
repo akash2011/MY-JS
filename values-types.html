@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>dont know js</title>
+</head>
+<body>
+    <section class="myjs">    
+        <div class="testjs">
+         <h1>My JS Test</h1>
+        </div>     
+    </section> 
+
+    <script>
+        /* hoisting */
+        a=1271;        // assigning value before it's  declared.
+        console.log(a);
+        var a;
+
+        a = "hello world";
+        typeof a;				// "string"
+        console.log(a);
+        a = 42;
+        typeof a;				// "number"
+        console.log(a);
+        a = true;
+        typeof a;				// "boolean"
+        console.log(a);
+        a = null;
+        typeof a;				// "object" -- weird, bug
+        console.log(a);
+        a = undefined;
+        typeof a;				// "undefined"
+        console.log(a);
+        a = { b: "c" };
+        typeof a;				// "object"
+        console.log(a);
+    </script> 
+
+</body>
+</html>
+  
